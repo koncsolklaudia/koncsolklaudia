@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+<h1>Main Page</h1>
+<h2>Mentors</h2>
+<ul>
+    <li th:each="mentor : ${mentors}">
+        <a th:href="@{'/mentor/' + ${mentor.id}}" th:text="${mentor.name}"></a>
+    </li>
+</ul>
+
+<h2>Add Mentor</h2>
+<form method="post" th:object="${mentor}" th:action="@{/mentor}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="class">Class:</label>
+    <select id="class" name="class">
+        <option th:each="class : ${classes}" th:value="${class.id}" th:text="${class.name}"></option>
+    </select>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
