@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Account Page</title>
+  <link rel="stylesheet" href="foradding.css">
+</head>
+<body>
+<h2>Add new Account</h2>
+<section>
+<form action="/add" method="post">
+  <div>
+    <label for="animal"> Name: </label>
+    <input type="text" id="animal" th:name="name">
+  </div>
+
+  <div>
+  <label for="animalType">Type: </label>
+    <select th:type="text" id="animalType" th:name="animalType">
+    <option th:value="lion">Lion</option>
+    <option th:value="ant">Ant</option>
+    <option th:value="warthog">Warthog</option>
+    <option th:value="meerkat">Meerkat</option>
+  </select>
+  </div>
+
+  <div>
+    <label for="balance">Balance: </label>
+    <input type="number" id="balance" th:name="balance">
+  </div>
+
+  <div>
+
+    <p>Good guy?</p>
+    <label><span>YES</span>
+    <input type="radio"  name="isGood" th:value="true" required></label>
+    <label><span>NO</span>
+    <input type="radio"  name="isGood" th:value="false" required></label>
+  </div>
+
+  <p>King?</p>
+  <label><span>YES</span>
+    <input type="radio"  name="isKing" th:value="true" required></label>
+  <label><span>NO</span>
+    <input type="radio"  name="isKing" th:value="false" required></label>
+
+      <button type="submit"> Add new Account </button>
+
+</form>
+</section>
+</body>
+</html>

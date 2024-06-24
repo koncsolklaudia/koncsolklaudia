@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item Page</title>
+    <link rel="stylesheet" href="/shopstyle.css">
+</head>
+<body>
+<h2>Add new Items</h2>
+<section>
+    <form action="/add" method="post">
+        <div>
+            <label for="name"> Name: </label>
+            <input type="text" id="name" th:name="name">
+        </div>
+
+        <div>
+            <label for="description">Type: </label>
+            <input type="text" id="description" th:name="description">
+
+        </div>
+
+        <div>
+            <label for="price">Price: </label>
+            <input type="number" id="price" th:name="price">
+        </div>
+
+        <div>
+            <label for="quantityOfStock">Quantity of stock: </label>
+            <input type="number" id="quantityOfStock" th:name="quantityOfStock">
+        </div>
+
+        <button type="submit"> Add new Shop Item </button>
+
+    </form>
+</section>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new post to Reddit</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Mynerve&display=swap" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="~{fragment :: header}"></th:block>
+<br>
+<br>
+<br>
+<header>Submit a new post</header>
+<form th:action="@{/submit}" th:method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" placeholder="Title" required autofocus/>
+    <label for="content">Content:</label>
+    <input type="text" id="content" name="content" placeholder="Content" required autofocus/>
+    <label for="url">URL:</label>
+    <input type="url" id="url" name="url" placeholder="Link" required/>
+    <button id="submit" type="submit" value="Submit">Submit</button>
+</form>
+</body>
+</html>

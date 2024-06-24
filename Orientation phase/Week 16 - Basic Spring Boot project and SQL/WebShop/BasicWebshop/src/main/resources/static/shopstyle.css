@@ -1,0 +1,115 @@
+/* Reset some default styles */
+body, h1, h2, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #DCCCB6;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav#topBar {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+nav#topBar a {
+    color: #333333;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+#searching {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#searching input[type="text"] {
+    padding: 5px;
+    width: 200px;
+}
+
+#searching button {
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+section {
+    margin-top: 20px;
+}
+
+section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+p.flash-message {
+    background-color: #f44336;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav#topBar a {
+        margin: 0 5px;
+    }
+
+    #searching input[type="text"] {
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 5px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+}

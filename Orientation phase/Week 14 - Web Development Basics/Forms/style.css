@@ -1,0 +1,113 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 5px 5px;
+    padding: 20px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Center alignment */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label,
+input {
+    display: block;
+    margin-bottom: 0 auto;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4CAF50; /* Change border color to green (#4CAF50) when focused */
+}
+
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0d0f0e;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #45a049;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.button {
+	background-color: #04AA6D;
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	border-radius: 8px;
+	border: none;
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.forgot-password-link {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+    text-align: right; /* Align the link to the right side */
+    text-decoration: underline;
+}
+
+.forgot-password-link:hover {
+    color: #333;
+}
+
+
+.password-input-container {
+    position: relative;
+}
+
+.password-input-container input[type="password"] {
+    width: calc(100% - 30px); /* Adjust the width to leave space for the icon */
+    padding-right: 30px; /* Add space for the icon */
+}
+
+.password-input-container .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+}

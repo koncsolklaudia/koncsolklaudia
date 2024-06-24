@@ -1,0 +1,80 @@
+1. **What is data?**
+   Data refers to information, facts, or values that are collected, stored, and used for various purposes.
+
+2. **What is a database?**
+   A database is a structured collection of data that is organized, stored, and managed in a way that allows efficient retrieval, modification, and querying of that data.
+
+3. **What is Structured Query Language (SQL)?**
+   SQL is a programming language used for managing and manipulating relational databases. It is used to create, modify, and query databases and their data.
+
+4. **What is a relational database?**
+   A relational database is a type of database that stores and manages data in structured tables with predefined relationships between the tables.
+
+5. **What is a table?**
+   A table is a fundamental structure in a relational database that stores data in rows and columns. Each row represents a record, and each column represents a specific attribute of the record.
+
+6. **What is a column?**
+   A column is a vertical element in a database table that represents a specific type of data, such as names, dates, or numbers.
+
+7. **What kind of data types can we store in a column?**
+   Common data types include integers, strings, dates, floating-point numbers, and more. The exact set of data types can vary between database systems.
+
+8. **What kind of table relations exist?**
+   Common table relationships include one-to-one, one-to-many, and many-to-many. These relationships define how records in one table are related to records in another table.
+
+9. **What is a primary key? Why is it important?**
+   A primary key is a unique identifier for a record in a table. It ensures data integrity, helps in fast retrieval, and enforces uniqueness.
+
+10. **What is a foreign key? Why is it important?**
+    A foreign key is a column that establishes a link between tables by referencing the primary key of another table. It enforces referential integrity and maintains relationships between tables.
+
+11. **What does CRUD mean?**
+    CRUD stands for Create, Read, Update, Delete. These are the fundamental operations performed on data in a database.
+
+12. **How can we create a database?**
+    You typically create a database using SQL commands like `CREATE DATABASE`.
+
+13. **How can we switch between databases?**
+    You switch between databases using the `USE` statement in SQL.
+
+14. **How can we create a table?**
+    You create a table using the `CREATE TABLE` statement, specifying columns, their data types, and constraints.
+
+15. **How can we check the existing tables?**
+    You can retrieve a list of existing tables in a database using various SQL commands, depending on the database system you're using.
+
+16. **How can we check the current table's properties?**
+    The specifics can vary depending on the database system. In general, you can use commands like `DESCRIBE` or `SHOW COLUMNS` to retrieve table structure.
+
+17. **How can we retrieve all data from a table?**
+    You use the `SELECT` statement without specifying a `WHERE` condition to retrieve all data from a table.
+
+18. **How can we retrieve all data but only specific columns from a table?**
+    Use the `SELECT` statement and specify the columns you want to retrieve.
+
+19. **How can we retrieve specific data from a table?**
+    Use the `SELECT` statement with a `WHERE` clause specifying the conditions for the data you want.
+
+20. **What kind of operators do we have?**
+    SQL provides various operators like equality (`=`), inequality (`!=` or `<>`), greater than (`>`), less than (`<`), logical AND (`AND`), logical OR (`OR`), etc.
+
+21. **How can we add data to a table?**
+    Use the `INSERT INTO` statement to add data to a table.
+
+22. **How can we modify data in a table?**
+    Use the `UPDATE` statement to modify existing data in a table.
+
+23. **How can we remove data from a table?**
+    Use the `DELETE FROM` statement with a `WHERE` clause to remove data from a table.
+
+24. **How can you select only the different values?**
+    You can use the `DISTINCT` keyword with the `SELECT` statement to retrieve only unique values.
+
+25. **How can you manipulate the order of the result?**
+    You can use the `ORDER BY` clause with the `SELECT` statement to sort the result in ascending or descending order based on specified columns.
+
+26. **What are the common aggregate functions?**
+    Common aggregate functions include `SUM`, `COUNT`, `AVG`, `MIN`, and `MAX`. They perform calculations on sets of values.
+
+27. **How can we select from multiple tables?**
+    You can use the `JOIN` clause to combine data from multiple tables based on specified conditions.

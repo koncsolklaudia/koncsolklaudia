@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition Store</title>
+</head>
+<body>
+<th:block th:insert="~{fragments :: header}"></th:block>
+<br>
+<form th:action="@{/nutritioncenter}" method="post">
+    <label for="food">Food</label>
+    <select th:value="${newFood}" name="newFood" id="food">
+        <option th:text="eggs" value="eggs">eggs</option>
+        <option th:text="meatball" value="meatball">meatball</option>
+    </select>
+    <label for="drink">Drink</label>
+    <select th:value="${newDrink}" name="newDrink" id="drink">
+        <option th:text="milk" value="milk">milk</option>
+        <option th:text="water" value="water">water</option>
+    </select>
+    <input type="submit" value="Change">
+</form>
+</body>
+</html>

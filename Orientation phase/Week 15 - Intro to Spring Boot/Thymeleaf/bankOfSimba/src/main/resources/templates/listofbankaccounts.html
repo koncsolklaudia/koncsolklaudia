@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>List of Bank Accounts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<table>
+<tr>
+    <th>Generated index</th>
+    <th>Position</th>
+    <th>Name</th>
+    <th>Balance</th>
+    <th>Animal Type</th>
+    <th>Good or Bad Guy</th>
+</tr>
+
+<tr th:each="bank : ${banks}" th:object="${bank}">
+    <td th:text="${bankStat.count}"></td>
+    <td th:utext="*{getKing()}? '<b>K I N G</b>' : 'Not king'"></td>
+    <td th:text="*{name}"></td>
+    <td th:text="'Balance: ' + *{#numbers.formatDecimal(balance,0,2,'POINT')} + ' Zebra'"></td>
+    <td th:text="*{animalType}"></td>
+    <td th:text="*{getGood()} ? 'Good one' : 'Bad one'"></td>
+
+</tr>
+</table>
+
+<form class="raise" action="/list" method="post">
+    <div>
+        <label for="animal">Which character's balance would you like to raise? Give his name</label>
+        <input type="text" id="animal" name="name">
+        <button type="submit">Raise the balance</button>
+    </div>
+</form>
+
+<form class="addAccount" action="/add" method="get">
+    <div>
+        <button type="submit" id="add-button"> Add new Account </button>
+    </div>
+</form>
+</body>
+</html>

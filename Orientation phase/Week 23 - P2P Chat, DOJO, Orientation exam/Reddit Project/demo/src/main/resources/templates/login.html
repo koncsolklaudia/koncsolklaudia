@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration</title>
+  <link rel="stylesheet" th:href="@{css/style.css}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Mynerve&display=swap" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="~{fragment :: header}"></th:block>
+<br>
+<br>
+<br>
+<header>Log in</header>
+<form th:action="@{/login}" th:method="post">
+  <label for="username">Username:</label>
+  <input id="username" th:name="name" required autofocus/>
+  <label for="password">Password:</label>
+  <input type="password" id="password" th:name="password" placeholder="Enter password" required/>
+  <button id="submit" type="submit" value="Submit">Submit</button>
+</form>
+</body>
+</html>

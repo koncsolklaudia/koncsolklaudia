@@ -1,0 +1,62 @@
+Difference between Server-side and Client-side Rendering:
+
+Server-side rendering (SSR) involves the web server processing the request and generating an HTML page on the server. The complete HTML page is then sent to the client's browser for display. SSR is typically used in traditional server-rendered web applications.
+Client-side rendering (CSR) loads a basic HTML structure from the server, and then JavaScript running in the client's browser fetches and renders data dynamically. This approach is common in single-page applications (SPAs) and allows for more dynamic and interactive user experiences.
+API and Web API:
+
+API stands for Application Programming Interface. It is a set of rules and protocols that allow different software applications to communicate with each other.
+A Web API is an API specifically designed for interaction over the internet using HTTP protocols. It allows web servers to provide data and services to client applications, often in a standardized format such as JSON or XML.
+Web Service:
+
+A web service is a technology-agnostic way for different software applications to communicate with each other over a network. It can use various protocols, including HTTP, to enable data exchange between systems.
+RESTful Web Application:
+
+A RESTful web application is an application that follows the principles of Representational State Transfer (REST). It uses HTTP methods (GET, POST, PUT, DELETE) to perform CRUD (Create, Read, Update, Delete) operations on resources. It emphasizes statelessness, uniform resource identifiers (URIs), and a client-server architecture.
+What's not RESTful: Any application that doesn't strictly adhere to REST principles, such as using non-standard HTTP methods or not representing resources as URIs, may not be considered RESTful.
+Common HTTP Methods:
+
+GET: Retrieve data from the server.
+POST: Create a new resource on the server.
+PUT: Update an existing resource on the server.
+DELETE: Remove a resource from the server.
+PATCH: Partially update a resource.
+HEAD: Retrieve headers for a resource.
+OPTIONS: Determine which HTTP methods are supported by the server for a resource.
+API Response Types:
+
+API endpoints can produce various response types, including JSON, XML, HTML, text, or binary data, depending on the application's requirements and the client's request.
+Parts of a URL and Their Usage:
+
+URL (Uniform Resource Locator) consists of:
+Scheme (e.g., http, https)
+Host (e.g., www.example.com)
+Port (optional)
+Path (e.g., /resource)
+Query parameters (e.g., ?param1=value1&param2=value2)
+Fragment identifier (e.g., #section)
+HTTP Requests vs. Responses:
+
+HTTP Requests are made by clients (e.g., browsers) to request resources from servers.
+HTTP Responses are sent by servers in response to requests and contain the requested data along with metadata (status code, headers).
+Postman:
+
+Postman is a popular API development tool used for testing and documenting APIs. It allows users to send HTTP requests to API endpoints, inspect responses, and automate testing and monitoring of APIs.
+Jackson ObjectMapper:
+
+Jackson ObjectMapper is a library in Java used for converting Java objects to JSON (serialization) and vice versa (deserialization). It is valuable for working with JSON data in Java applications.
+Creating a Java Class for JSON Mapping:
+
+To map a Java class to a JSON object, you can use annotations provided by libraries like Jackson. Here's an example:
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class MyObject {
+    @JsonProperty("name")
+    private String objectName;
+
+    // Getter and setter methods
+}
+
+

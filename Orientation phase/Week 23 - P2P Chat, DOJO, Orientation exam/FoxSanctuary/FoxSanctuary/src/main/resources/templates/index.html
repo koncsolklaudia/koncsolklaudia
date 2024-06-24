@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GFA Fox Sanctuary</title>
+</head>
+<body class="mx-auto w-50">
+<h1>GFA Fox Sanctuary</h1>
+<h2>Foxes</h2>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+    <th scope="col">Species</th>
+    <th scope="col">Care Taker</th>
+  </tr>
+  </thead>
+  <tbody th:each="fox:${foxes}">
+  <tr>
+    <td th:text="${fox.getName()}"></td>
+    <td th:text="${fox.getAge()}"></td>
+    <td th:text="${fox.getSpecies()}"></td>
+    <td th:text="${fox.getCaretaker()} ? ${fox.getCaretaker().getName()} : 'No care taker assigned'"></td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Bring new fox to Sanctuary</h2>
+
+<div th:if="${error != null}">
+  <div class="alert alert-danger" role="alert" th:text="${error}"></div>
+</div>
+
+<form method="POST" action="/fox/add">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name">
+  </div>
+  <div class="mb-3">
+    <label for="age" class="form-label">Age</label>
+    <input type="number" class="form-control" id="age" name="age">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="species">Species</label>
+    <input type="text" class="form-control" id="species" name="species">
+  </div>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+</body>
+</html>

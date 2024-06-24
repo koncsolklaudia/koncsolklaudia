@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programmer Fox Club</title>
+</head>
+<body>
+
+<th:block th:insert="~{fragments :: header}"></th:block>
+<br>
+<br>
+<img th:src="@{greenfox.png}">
+<br>
+<br>
+
+<p th:text="${user} == null ? 'You have to log in!' : 'This is ' + ${user.fox.name} + '. Currently living on ' + ${user.fox.food.name} + ' and '
+ + ${user.fox.drink.name} + '. He knows ' + ${user.fox.tricks.size()} + ' tricks.'"></p>
+
+<div th:unless="${user} == null">
+    <h1>Known Tricks</h1>
+    <div th:if="${user.fox.tricks.size() != 0}">
+        <ul th:each="trick : ${user.fox.tricks}" th:value="trick">
+            <li th:text="${trick.getName()}"></li>
+        </ul>
+    </div>
+    <div th:unless="${user.fox.tricks.size() != 0}">
+        <p>You know no tricks, yet. Go and learn some!</p>
+    </div>
+</div>
+</body>
+</html>

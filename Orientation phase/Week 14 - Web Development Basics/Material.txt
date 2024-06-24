@@ -1,0 +1,23 @@
+What is an Optional type?
+Optional is a class in Java that was introduced in Java 8 to represent an object that may or may not contain a non-null value. It is used to deal with situations where a method might return a value or nothing (null). Instead of directly returning null, which can lead to NullPointerExceptions, methods can return an Optional object to indicate whether a value is present or absent.
+
+How can you check if the value is present?
+You can check if the value is present in an Optional object by using methods like isPresent() or ifPresent(Consumer<? super T> consumer). The isPresent() method returns a boolean indicating whether the Optional contains a value or not. If you want to perform some action when the value is present, you can use ifPresent() and provide a consumer function that will be executed if the Optional holds a value.
+
+How can you get the value?
+To get the value from an Optional, you can use the get() method. However, it's essential to be cautious when using get() because if the Optional is empty (contains no value), it will throw a NoSuchElementException. To avoid this, it's recommended to use other methods like orElse(T other) or orElseGet(Supplier<? extends T> supplier) that provide default values in case the Optional is empty.
+
+What if there is no value present and you use the get() method?
+If there is no value present in the Optional and you use the get() method to retrieve the value, it will throw a NoSuchElementException. To handle such situations safely, you should either use methods like isPresent() or ifPresent() to check if a value is present or use other methods like orElse() or orElseGet() to provide default values.
+
+What is a lambda expression?
+A lambda expression is a concise way to represent a functional interface in Java. It allows you to define an anonymous function, also known as a lambda function, using a compact syntax. Lambda expressions enable you to treat functionality as a method argument or code as data, making your code more expressive and easier to read. They are commonly used in functional programming and in APIs that use functional interfaces (interfaces with a single abstract method).
+
+What is a stream?
+A stream in Java is a sequence of elements that can be processed in a declarative and functional way. It allows you to perform aggregate operations on data, such as filtering, mapping, sorting, and reducing, using a functional programming paradigm. Streams do not store data; instead, they provide a way to process data from a source (e.g., a collection or an array) and produce a result. Streams are part of the Java Stream API introduced in Java 8.
+
+What is an intermediate operation?
+In the context of Java Streams, an intermediate operation is an operation that transforms or filters the elements of a stream but does not produce a final result immediately. Intermediate operations are lazy, meaning they do not execute until a terminal operation is invoked on the stream. Examples of intermediate operations include filter(), map(), sorted(), and distinct().
+
+What is a terminal operation??
+A terminal operation in Java Streams is an operation that produces a final result or a side effect. Unlike intermediate operations, terminal operations are eager, meaning they trigger the processing of the stream elements and produce an output. Examples of terminal operations include forEach(), collect(), reduce(), and count(). Once a terminal operation is executed on a stream, the stream cannot be used again.

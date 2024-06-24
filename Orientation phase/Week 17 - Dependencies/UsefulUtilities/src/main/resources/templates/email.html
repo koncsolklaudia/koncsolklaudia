@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-mail</title>
+</head>
+<body>
+
+<form action="/useful/email" method="post">
+    <label>
+        <span> E-mail address to check: </span>
+        <input type="text" name="email">
+    </label>
+    <input type="submit" value="validate">
+</form>
+<h1 th:text="${answer}"></h1>
+</body>
+</html>

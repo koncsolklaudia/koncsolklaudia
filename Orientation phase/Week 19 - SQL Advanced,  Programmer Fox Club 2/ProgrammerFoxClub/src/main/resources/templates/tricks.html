@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new tricks</title>
+</head>
+<body>
+<th:block th:insert="~{fragments :: header}"></th:block>
+
+<form th:action="@{/trick-center}" th:method="POST" th:value="${trick}">
+    <label for="trick-list">Tricks</label>
+    <select name="tricks" id="trick-list">
+        <option th:each="trick : ${tricks}" th:object="${trick}" th:text="${trick.getName()}" th:value="${trick}"></option>
+    </select>
+    <button type="submit">Sumbit</button>
+</form>
+
+</body>
+</html>

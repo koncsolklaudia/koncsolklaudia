@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Aliaser</title>
+</head>
+<body>
+
+<h1>URL Aliaser</h1>
+
+<table>
+    <thead>
+    <th>URL</th>
+    <th>Alias</th>
+    <th>Hit count</th>
+    </thead>
+    <tbody>
+    <tr th:each="alias : ${aliases}" th:object="${alias}">
+        <td>
+            <a
+                    th:href="*{getLink().getUrl()}"
+                    th:text="*{getLink().getUrl()}"
+            ></a>
+        </td>
+        <td th:text="*{getAlias()}">Alias</td>
+        <td th:text="*{getHitCount()}">Hit count</td>
+    </tr>
+    </tbody>
+</table>
+
+<p
+        th:if="${success != null && success}"
+        th:text="|You URL is aliased to ${alias} and you secret code is ${secret}|"
+></p>
+
+<p
+        th:if="${success != null && !success}"
+        th:text="'Your alias is already in use!'"
+></p>
+
+<form action="/save-link" method="post">
+    <label for="url">URL</label>
+    <input type="url" required name="url" id="url"
+           th:value="${success != null && !success ? url : ''}">
+    <label for="alias">Alias</label>
+    <input type="text" required name="alias" id="alias"
+           th:value="${success != null && !success ? alias : ''}">
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

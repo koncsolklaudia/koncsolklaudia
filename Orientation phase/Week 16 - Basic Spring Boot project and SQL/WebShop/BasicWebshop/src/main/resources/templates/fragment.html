@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="headfile">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>WebShop</title>
+    <link rel="stylesheet" href="/shopstyle.css">
+</head>
+
+<body>
+<th:block th:fragment="toppart">
+    <header><h1><a th:href="@{/webshop}">==MY SHOP==</a></h1></header>
+    <nav id="topBar">
+        <a th:href="@{/only-available}">Only available</a>
+        <a th:href="@{/cheapest-first}">Cheapest first</a>
+        <a th:href="@{/contains-nike}">Contains Nike</a>
+        <a th:href="@{/average-stock}">Average stock</a>
+        <a th:href="@{/most-expensive}">Most expensive available</a>
+        <a th:href="@{/add}">Add item</a>
+        <a th:href="@{'?'(rate='cs_CZ')}" th:text="'Kč'"></a>
+        <a th:href="@{'?'(rate='de_DE')}" th:text="'€'"></a>
+    </nav>
+
+    <nav th:if="${search} != null" id="searching">
+        <!--/*@thymesVar id="search" type=""*/-->
+        <form th:action="@{/search}" th:method="post" th:object="${search}">
+            <label>
+                <input type="text" placeholder="...something like &quot;nike&quot;" name="searched">
+                <!--   th:field="*{search}" required>-->
+            </label>
+            <button type="submit">SEARCH</button>
+        </form>
+    </nav>
+</th:block>
+
+<th:block th:fragment="productTable">
+
+    <section th:if="${!#lists.isEmpty(items)}">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity of stock</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.description}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.quantityOfStock}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+</th:block>
+
+<th:block th:fragment="flashMessage(message)">
+    <p th:text="${message}"></p>
+</th:block>
+
+<th:block th:fragment="average" >
+    <section>
+        <h2 th:text="'Average stock: ' + ${average}"></h2>
+    </section>
+</th:block>
+
+<th:block th:fragment="itemDetail">
+    <section th:object="${item}" th:with="viewPrice=${price} * ${rate}">
+
+        <p th:if="${result} != null" th:replace="fragment :: flashMessage(message=${result})"></p>
+
+        <h2 th:text="'Item: ' + ${name}"></h2>
+        <ul>
+            <li th:text="'Description: ' + ${description}"></li>
+            <li th:text="'Price: ' + ${#numbers.formatCurrency(viewPrice)}"></li>
+            <li th:text="'Quantity of stock: ' + ${quantityOfStock}"></li>
+        </ul>
+    </section>
+</th:block>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Reddit</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Mynerve&display=swap" rel="stylesheet">
+</head>
+<body>
+<th:block th:insert="~{fragment :: header}"></th:block>
+<br>
+<p class="user" th:text="${user} == null ? 'please, log in!' : 'hello, ' + ${user.getUserName() + '!'}"></p>
+<header>Trending posts</header>
+<nav>
+    <a th:href="@{/(offset = 0)}">First page</a>
+    <a th:if="${offset - 1 >= 0}" th:href="@{/(offset = ${offset - 1})}">Previous</a>
+    <a th:if="${offset + 1 < posts.getTotalPages()}" th:href="@{/(offset = ${offset + 1})}">Next</a>
+    <a th:href="@{/(offset = ${posts.getTotalPages() - 1})}">Last page</a>
+</nav><br>
+<table>
+    <tr>
+        <th>Score</th>
+        <th>Vote Down</th>
+        <th>Vote Up</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>URL</th>
+        <th>Creation time</th>
+    </tr>
+
+    <tr th:each="post : ${posts}" th:object="${post}">
+        <td th:text="*{score}"></td>
+        <td>
+            <form th:action="@{/{id} (id= *{id})}" method="post" th:name="|scoringValueMinus*{id}|">
+                <input type="hidden" th:name="scoringValue" th:value="-1"/>
+                <a th:href="|javascript:document.scoringValueMinus*{id}.submit()|"><img th:src="@{images/down-arrow.png}" alt="Vote Down" style="width:42px;height:42px;"></a>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/{id} (id= *{id})}" method="post" th:name="|scoringValuePlus*{id}|">
+                <input type="hidden" th:name="scoringValue" th:value="1"/>
+                <a th:href="|javascript:document.scoringValuePlus*{id}.submit()|"><img th:src="@{images/up-arrow.png}" alt="Vote Up" style="width:42px;height:42px;"></a>
+            </form>
+        </td>
+        <td th:text="*{id}"></td>
+        <td th:text="*{title}"></td>
+        <td th:text="*{url}"></td>
+        <td th:text="${#temporals.format(post.createdTime, 'HH:mm dd.MM.yyyy')}"></td>
+    </tr>
+</table>
+</body>
+</html>

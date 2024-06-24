@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{fragment :: headfile}">
+    <title>WEBSHOP</title>
+    <link rel="stylesheet" href="/shopstyle.css">
+</head>
+
+<body class="container">
+<th:block th:insert="~{fragment :: toppart}"></th:block>
+<th:block th:if="${average} != null" th:insert="~{fragment :: average}"></th:block>
+<th:block th:if="${error} != null" th:insert="~{fragment :: flashMessage(message=${error})}"></th:block>
+<th:block th:if="${items} != null" th:insert="~{fragment :: productTable}"></th:block>
+<th:block th:if="${item} != null" th:insert="~{fragment :: itemDetail}"></th:block>
+</body>
+
+</html>
